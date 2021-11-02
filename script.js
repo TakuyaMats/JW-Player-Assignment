@@ -9,10 +9,11 @@ initializePlayer = () => {
     mute = document.getElementById('mute');
     fullScreen = document.getElementById('fullScreen');
     playBackState = document.getElementById('playBackState');
-    // timer = document.getElementById('timer');
     // seekslider = document.getElementById("seekslider");
-	curtimetext = document.getElementById("curtimetext");
-	durtimetext = document.getElementById("durtimetext");
+    curtimetext = document.getElementById("curtimetext");
+    durtimetext = document.getElementById("durtimetext");
+    getHeight = document.getElementById("getHeight");
+    getWidth = document.getElementById("getWidth");
 
     // Add event listeners
     playBtn.addEventListener("click", playPause, false);
@@ -24,9 +25,10 @@ initializePlayer = () => {
     vid.addEventListener("playing", getPlaybackState, false);
     vid.addEventListener("pause", getPauseBackState, false);
     vid.addEventListener("ended", getEndedBackState, false);
-    // vid.addEventListener("durationchange", getDuration, false);
     // seekslider.addEventListener("change",vidSeek,false);
-	vid.addEventListener("timeupdate",seektimeupdate,false);
+    vid.addEventListener("timeupdate", seektimeupdate, false);
+    vid.addEventListener("resize", videoSize, false);
+    vid.addEventListener("resize", videoDimensions, false);
 }
 // Makes sure html runs first before javascript
 window.onload = initializePlayer;
@@ -72,6 +74,7 @@ mutePlayer = () => {
     }
 }
 
+// Fullscreen Mode
 setFullScreen = () => {
     if (vid.requestFullscreen) {
         vid.requestFullscreen();
@@ -84,6 +87,7 @@ setFullScreen = () => {
     }
 }
 
+// Playback status
 getPlaybackState = () => {
     if (vid.play()) {
         playBackState.innerHTML = "Playing";
@@ -102,25 +106,41 @@ getEndedBackState = () => {
     }
 }
 
-// getDuration = () => {
-    
-// }
-
 // function vidSeek(){
 // 	var seekto = vid.duration * (seekslider.value / 100);
 // 	vid.currentTime = seekto;
 // }
 
-function seektimeupdate(){
-	var nt = vid.currentTime * (100 / vid.duration);
-	// seekslider.value = nt;
-	var curmins = Math.floor(vid.currentTime / 60);
-	var cursecs = Math.floor(vid.currentTime - curmins * 60);
-	var durmins = Math.floor(vid.duration / 60);
-	var dursecs = Math.floor(vid.duration - durmins * 60);
-	if(cursecs < 10){ cursecs = "0"+cursecs; }
-	if(dursecs < 10){ dursecs = "0"+dursecs; }
-	if(curmins < 10){ curmins = "0"+curmins; }
-	if(durmins < 10){ durmins = "0"+durmins; }
-	curtimetext.innerHTML = (curmins+":"+cursecs + "/" + durmins+":"+dursecs)
+function seektimeupdate() {
+    var nt = vid.currentTime * (100 / vid.duration);
+    // seekslider.value = nt;
+    var curmins = Math.floor(vid.currentTime / 60);
+    var cursecs = Math.floor(vid.currentTime - curmins * 60);
+    var durmins = Math.floor(vid.duration / 60);
+    var dursecs = Math.floor(vid.duration - durmins * 60);
+    if (cursecs < 10) {
+        cursecs = "0" + cursecs;
+    }
+    if (dursecs < 10) {
+        dursecs = "0" + dursecs;
+    }
+    if (curmins < 10) {
+        curmins = "0" + curmins;
+    }
+    if (durmins < 10) {
+        durmins = "0" + durmins;
+    }
+    curtimetext.innerHTML = (curmins + ":" + cursecs + "/" + durmins + ":" + dursecs)
+}
+
+videoSize = () => {
+    let w = vid.videoWidth;
+    let h = vid.videoHeight;
+
+    if (w && h) {
+        vid.style.width = w;
+        getWidth.innerHTML = ('Width: ' + w);
+        vid.style.height = h;
+        getHeight.innerHTML = ('Height: ' + h);
+    }
 }
