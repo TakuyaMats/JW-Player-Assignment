@@ -2,17 +2,14 @@ initializePlayer = () => {
     // Set object references
     vid = document.getElementById('player');
     playBtn = document.getElementById('playPauseBtn');
-    seekSlider = document.getElementById('seekSlider');
-
-    timerWrapper = document.querySelector('.timer');
-    timer = document.querySelector('.timer span');
-    timerBar = document.querySelector('.timer div');
-
+    autoBtn = document.getElementById('autoPlay')
+    disableAutoBtn = document.getElementById('disableAutoPlay')
     // Add event listeners
     playBtn.addEventListener("click", playPause, false);
-    timerBar.addEventListener("change", setTime, false);
-    vid.addEventListener('timeupdate', setTime);
+    autoBtn.addEventListener("click", autoPlay, false);
+    disableAutoBtn.addEventListener("click", disableAutoPlay, false);
 }
+// Makes sure html runs first before javascript
 window.onload = initializePlayer;
 
 
@@ -25,4 +22,16 @@ playPause = () => {
         vid.pause();
         playBtn.innerHTML = "Play";
     }
+}
+
+// Autoplay
+autoPlay = () => {
+    vid.autoplay = true;
+    vid.load();
+}
+
+// Disable Autoplay
+disableAutoPlay = () => {
+    vid.autoplay = false;
+    vid.load();
 }

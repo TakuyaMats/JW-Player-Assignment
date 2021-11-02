@@ -39,6 +39,7 @@
 
 #control-bar {
     display: flex;
+    justify-content: center;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -57,6 +58,14 @@
     box-shadow: 3px 3px 5px black;
     transition: 1s all;
     display: flex; */
+}
+
+#player-status {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    width: 100%;
+    background: #333;
 }
 
 .timer,
