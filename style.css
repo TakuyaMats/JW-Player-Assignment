@@ -1,9 +1,90 @@
-#container {
-    width: 420px;
-    height: 340px;
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ccc;
+    height: 100vh;
+}
+
+.c-video {
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+}
+
+.buttons button {
+    cursor: pointer;
+}
+
+.buttons {
+    padding: 10px;
+}
+
+.orange-bar {
+    height: 10px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #000;
+}
+
+.orange-juice {
+    height: 10px; 
+    background-color: orangered;
+}
+
+#player {
+    width: 100%;
 }
 
 #control-bar {
-    background: #333; 
-    padding: 10px;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    flex-wrap: wrap;
+    background: #333;
+/* 
+    visibility: hidden;
+    opacity: 0.5;
+    width: 400px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -200px;
+    background-color: white;
+    box-shadow: 3px 3px 5px black;
+    transition: 1s all;
+    display: flex; */
+}
+
+.timer,
+.playbackState,
+.getHeight,
+.getWidth,
+.getViewability {
+    line-height: 38px;
+    font-size: 10px;
+    font-family: monospace;
+    text-shadow: 1px 1px 0px black;
+    color: white;
+    flex: 5;
+    position: relative;
+}
+
+.timer div {
+    position: absolute;
+    background-color: rgba(255,255,255,0.2);
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 38px;
+    z-index: 2;
+}
+
+.timer span {
+position: absolute;
+z-index: 3;
+left: 19px;
 }

@@ -9,12 +9,25 @@
 </head>
 
 <body>
-    <div id="container">
-        <video id="player" controls width="420" height="340">
-            <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" type="video/mp4" />
-        </video>
-        <div id="control-bar">
-            <button id="playpausebtn" onclick="playPause(this, 'player')">Pause</button>
+    <div class="container">
+        <div class="c-video">
+            <video id="player">
+                <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" type="video/mp4" />
+            </video>
+            <div id="control-bar">
+                <div class="buttons">
+                    <button id="playPauseBtn">Pause</button>
+                    <button id="autoPlay">Auto Play</button>
+                    <button id="setVolume">Set Volume</button>
+                    <button id="mute">Mute</button>
+                    <button id="fullScreen">Full Screen</button>
+                </div>
+                <div class="timer"><div></div><span aria-label="timer">00:00</span></div>
+                <div class="playbackState"><span aria-label="playbackState">playing</span></div>
+                <div class="getHeight"><span aria-label="getHeight">Height:</span></div>
+                <div class="getWidth"><span aria-label="getWidth">Width:</span></div>
+                <div class="getViewability"><span aria-label="getViewability">Viewability:</span></div>
+            </div>
         </div>
     </div>
 
