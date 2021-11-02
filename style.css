@@ -68,11 +68,11 @@
     background: #333;
 }
 
-.timer,
-.playbackState,
-.getHeight,
-.getWidth,
-.getViewability {
+#timer,
+#playBackState,
+#getHeight,
+#getWidth,
+#getViewability {
     line-height: 38px;
     font-size: 10px;
     font-family: monospace;

@@ -8,6 +8,7 @@ initializePlayer = () => {
     volume = document.getElementById('volume');
     mute = document.getElementById('mute');
     fullScreen = document.getElementById('fullScreen');
+    playBackState = document.getElementById('playBackState');
 
     // Add event listeners
     playBtn.addEventListener("click", playPause, false);
@@ -16,6 +17,9 @@ initializePlayer = () => {
     volumeControl.addEventListener("click", setVolume, false);
     mute.addEventListener("click", mutePlayer, false);
     fullScreen.addEventListener("click", setFullScreen, false);
+    vid.addEventListener("playing", getPlaybackState, false);
+    vid.addEventListener("pause", getPauseBackState, false);
+    vid.addEventListener("ended", getEndedBackState, false);
 }
 // Makes sure html runs first before javascript
 window.onload = initializePlayer;
@@ -70,5 +74,23 @@ setFullScreen = () => {
         vid.webkitRequestFullscreen();
     } else if (vid.msRequestFullscreen) {
         vid.msRequestFullscreen();
+    }
+}
+
+getPlaybackState = () => {
+    if (vid.play()) {
+        playBackState.innerHTML = "Playing";
+    }
+}
+
+getPauseBackState = () => {
+    if (vid.paused) {
+        playBackState.innerHTML = "Paused";
+    }
+}
+
+getEndedBackState = () => {
+    if (vid.ended) {
+        playBackState.innerHTML = "Video Ended"
     }
 }
