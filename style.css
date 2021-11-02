@@ -72,14 +72,17 @@
 #playBackState,
 #getHeight,
 #getWidth,
-#getViewability {
+#getViewability,
+#curtimetext,
+#durtimetext {
+    display: flex;
+    justify-content: center;
     line-height: 38px;
     font-size: 10px;
     font-family: monospace;
     text-shadow: 1px 1px 0px black;
     color: white;
     flex: 5;
-    position: relative;
 }
 
 .timer div {
