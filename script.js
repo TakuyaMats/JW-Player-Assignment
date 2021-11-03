@@ -14,6 +14,7 @@ initializePlayer = () => {
     durtimetext = document.getElementById("durtimetext");
     getHeight = document.getElementById("getHeight");
     getWidth = document.getElementById("getWidth");
+    getViewability = document.getElementById("getViewability");
 
     // Add event listeners
     playBtn.addEventListener("click", playPause, false);
@@ -28,7 +29,7 @@ initializePlayer = () => {
     // seekslider.addEventListener("change",vidSeek,false);
     vid.addEventListener("timeupdate", seektimeupdate, false);
     vid.addEventListener("resize", videoSize, false);
-    vid.addEventListener("resize", videoDimensions, false);
+    // window.addEventListener("load", viewAbility, false);
 }
 // Makes sure html runs first before javascript
 window.onload = initializePlayer;
@@ -133,14 +134,34 @@ function seektimeupdate() {
     curtimetext.innerHTML = (curmins + ":" + cursecs + "/" + durmins + ":" + dursecs)
 }
 
+// Player's Width & Height;
 videoSize = () => {
     let w = vid.videoWidth;
     let h = vid.videoHeight;
 
     if (w && h) {
         vid.style.width = w;
-        getWidth.innerHTML = ('Width: ' + w);
+        getWidth.innerHTML = ('Width: ' + w + 'px');
         vid.style.height = h;
-        getHeight.innerHTML = ('Height: ' + h);
+        getHeight.innerHTML = ('Height: ' + h + 'px');
     }
 }
+
+// Intersection Observer
+const cVideo = document.getElementById('c-video');
+
+const optionsViewPort = {
+    root: null,
+    rootMargin: '0px',
+    threshold: [0, 0.15 ,0.25, 0.35, 0.45, 0.5, 0.65, 0.75, 0.85, 0.95, 1]
+}
+
+let callback = (entries, observer) => {
+    entries.forEach(entry => {
+        let percentage = Math.round(entry.intersectionRatio * 100)
+        getViewability.innerHTML = ("Viewability: " + percentage + "%")
+    });
+};
+
+let observerViewport = new IntersectionObserver(callback, optionsViewPort);
+observerViewport.observe(cVideo);
