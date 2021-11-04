@@ -13,8 +13,8 @@
 
 #c-video {
     width: 100%;
-    max-width: 840px;
-    min-width: 440px;
+    max-width: 1600px;
+    min-width: 400px;
     position: relative;
     /* object-fit: cover; */
     /* resize: both;
@@ -153,12 +153,6 @@ progress {
     border-radius: 12px;
     text-align: center;
 }
-
-/* p {
-    margin: 24px;
-    margin-top: 12px;
-    margin-bottom: 12px;
-} */
 
 h1 {
     display: flex;
