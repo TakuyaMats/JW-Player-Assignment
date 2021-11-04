@@ -210,61 +210,14 @@ updateProgress = () => {
 
 
 // reSize
+if (window.ResizeObserver) {
+    let slider = document.querySelector('#reSize input[type="range"]');
 
+    cVideo.style.width = '800px';
 
-// var observer = new ResizeObserver(function(entries) {
-//     entries.forEach(function(entry) {
-//         console.log(entry.target.id + ': ' + JSON.stringify(entry.contentRect));
-//     });
-// });
-// observer.observe(cVideo);
+    slider.addEventListener('input', () => {
+        cVideo.style.width = slider.value + 'px';
+    })
 
-// console.log('before style change');
-// cVideo.style.width = '800px';
-// console.log('after style change');
-
-
-
-
-// if (window.ResizeObserver) {
-//     let slider = document.querySelector('reSize input[type="range"]');
-
-//     cVideo.style.width = '800px';
-
-//     slider.addEventListener('input', () => {
-//         cVideo.style.width = slider.value + 'px';
-//     })
-
-//     const resizeObserver = new ResizeObserver(entries => {
-//         for (let entry of entries) {
-//             if (entry.contentBoxSize) {
-//             // if (entry.contentBoxSize && entry.contentBoxSize.length > 0) {
-//             //     entry.target.style.borderRadius = Math.min(100, (entry.contentBoxSize[0].inlineSize / 10) +
-//             //         (entry.contentBoxSize[0].blockSize / 10)) + 'px';
-//             // } else {
-//             //     entry.target.style.borderRadius = Math.min(100, (entry.contentRect.width / 10) +
-//             //         (entry.contentRect.height / 10)) + 'px';
-
-//                 // cVideo.style.width = Math.max(1.5, entry.contentRect.width / 200) + 'rem';
-//                 // cVideo.style.width = Math.max(1, entry.contentRect.width / 600) + 'rem';
-//                 //     // Checking for chrome as using a non-standard array
-//                 //     if (entry.contentBoxSize[0]) {
-//                 //         h1Elem.style.fontSize = Math.max(1.5, entry.contentBoxSize[0].inlineSize / 200) + 'rem';
-//                 //         pElem.style.fontSize = Math.max(1, entry.contentBoxSize[0].inlineSize / 600) + 'rem';
-//                 //     } else {
-//                 //         h1Elem.style.fontSize = Math.max(1.5, entry.contentBoxSize.inlineSize / 200) + 'rem';
-//                 //         pElem.style.fontSize = Math.max(1, entry.contentBoxSize.inlineSize / 600) + 'rem';
-//                 //     }
-
-//                 // } else {
-//                 //     cVideo.style.width = Math.max(1.5, entry.contentRect.width / 200) + 'rem';
-//                 //     cVideo.style.width = Math.max(1, entry.contentRect.width / 600) + 'rem';
-//                 // }
-//             }
-//             console.log('Size changed');
-//         };
-
-//         resizeObserver.observe(slider);
-
-//     })
-// }
+    resizeObserver.observe(slider);
+}
