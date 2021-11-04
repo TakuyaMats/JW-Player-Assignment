@@ -3,7 +3,7 @@
 }
 
 
-.container {
+#container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,7 +73,8 @@
 #getHeight,
 #getWidth,
 #getViewability,
-#currentTime {
+#currentTime,
+#reSize {
     display: flex;
     justify-content: center;
     line-height: 38px;

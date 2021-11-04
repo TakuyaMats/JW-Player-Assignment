@@ -16,6 +16,9 @@ initializePlayer = () => {
     progressBar = document.getElementById('progress-bar');
     seek = document.getElementById('seek');
 
+    // Hide default controls
+    vid.controls = false;
+
     // Add event listeners
     playBtn.addEventListener("click", playPause, false);
     autoBtn.addEventListener("click", autoPlay, false);
@@ -28,11 +31,9 @@ initializePlayer = () => {
     vid.addEventListener("ended", getEndedBackState, false);
     vid.addEventListener("timeupdate", setTimeUpdate, false);
     vid.addEventListener('timeupdate', updateProgress, false);
-    seek.addEventListener('mousemove', updateSeekTooltip, false);
-    seek.addEventListener('input', skipAhead, false);
-
 }
 window.onload = initializePlayer;
+
 
 
 // Play & Pause Button
@@ -114,24 +115,24 @@ getEndedBackState = () => {
 
 // Time of video
 function setTimeUpdate() {
-    var curmins = Math.floor(vid.currentTime / 60);
-    var cursecs = Math.floor(vid.currentTime - curmins * 60);
-    var durmins = Math.floor(vid.duration / 60);
-    var dursecs = Math.floor(vid.duration - durmins * 60);
+    var curMins = Math.floor(vid.currentTime / 60);
+    var curSecs = Math.floor(vid.currentTime - curMins * 60);
+    var durMins = Math.floor(vid.duration / 60);
+    var durSecs = Math.floor(vid.duration - durMins * 60);
 
-    if (cursecs < 10) {
-        cursecs = "0" + cursecs;
+    if (curSecs < 10) {
+        curSecs = "0" + curSecs;
     }
-    if (dursecs < 10) {
-        dursecs = "0" + dursecs;
+    if (durSecs < 10) {
+        durSecs = "0" + durSecs;
     }
-    if (curmins < 10) {
-        curmins = "0" + curmins;
+    if (curMins < 10) {
+        curMins = "0" + curMins;
     }
-    if (durmins < 10) {
-        durmins = "0" + durmins;
+    if (durMins < 10) {
+        durMins = "0" + durMins;
     }
-    currentTime.innerHTML = (curmins + ":" + cursecs + " / " + durmins + ":" + dursecs);
+    currentTime.innerHTML = (curMins + ":" + curSecs + " / " + durMins + ":" + durSecs);
 }
 
 
@@ -171,7 +172,63 @@ resizeObserver.observe(cVideo);
 
 
 // Video Progress Bar
-function updateProgress() {
+updateProgress = () => {
     seek.value = Math.floor(vid.currentTime);
     progressBar.value = Math.floor(vid.currentTime);
 }
+
+
+// reSize
+
+
+var observer = new ResizeObserver(function(entries) {
+    entries.forEach(function(entry) {
+        console.log(entry.target.id + ': ' + JSON.stringify(entry.contentRect));
+    });
+});
+observer.observe(cVideo);
+
+console.log('before style change');
+cVideo.style.width = '800px';
+console.log('after style change');
+
+
+
+
+// if (window.ResizeObserver) {
+//     const h1Elem = document.querySelector('h1');
+//     const pElem = document.querySelector('p');
+//     const divElem = document.querySelector('body > div');
+//     const slider = document.getElementById('reSize');
+
+//     cVideo.style.width = '800px';
+
+//     slider.addEventListener('input', () => {
+//         cVideo.style.width = slider.value + 'px';
+//     })
+
+//     const resizeObserver = new ResizeObserver(entries => {
+//         for (let entry of entries) {
+//             if (entry.contentBoxSize) {
+//                 // Checking for chrome as using a non-standard array
+//                 if (entry.contentBoxSize[0]) {
+//                     h1Elem.style.fontSize = Math.max(1.5, entry.contentBoxSize[0].inlineSize / 200) + 'rem';
+//                     pElem.style.fontSize = Math.max(1, entry.contentBoxSize[0].inlineSize / 600) + 'rem';
+//                 } else {
+//                     h1Elem.style.fontSize = Math.max(1.5, entry.contentBoxSize.inlineSize / 200) + 'rem';
+//                     pElem.style.fontSize = Math.max(1, entry.contentBoxSize.inlineSize / 600) + 'rem';
+//                 }
+
+//             } else {
+//                 cVideo.style.width = Math.max(1.5, entry.contentRect.width / 200) + 'rem';
+//                 cVideo.style.width = Math.max(1, entry.contentRect.width / 600) + 'rem';
+//             }
+//         }
+//         console.log('Size changed');
+//     });
+
+//     resizeObserver.observe(slider);
+
+// } else {
+//     console.log('Resize observer not supported!');
+// }
