@@ -7,8 +7,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background: #ccc; */
-    height: 100vh;
+    margin-bottom: 24px;
+    margin: 24px;
 }
 
 #c-video {
@@ -46,7 +46,7 @@
 
 #player {
     width: 100% !important;
-    height: auto !important;
+    /* height: auto !important; */
 }
 
 #control-bar {
@@ -62,7 +62,6 @@
 #player-status {
     display: flex;
     justify-content: center;
-    /* position: absolute; */
     flex-wrap: wrap;
     width: 100%;
     background: #000;
@@ -143,5 +142,28 @@ progress {
 
 .input-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    margin: 24px;
+}
+
+.input-container input {
+    width: 244px;
+    height: 35px;
+    border: 2px solid orange;
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* p {
+    margin: 24px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+} */
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    margin-top: 70px;
 }

@@ -9,48 +9,28 @@
 </head>
 
 <body>
-    <div class="section1">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Vestibulum in erat facilisis, gravida ex sit amet, pulvinar lectus.
-            Suspendisse tempus nisi tempor, placerat est ac, euismod mauris.
-            Praesent egestas varius blandit. Quisque blandit aliquam congue.
-            Vestibulum lacinia ipsum ac massa pulvinar porta. Integer non turpis lectus. Suspendisse potenti.
-        </p>
-        <p>
-            Proin ullamcorper placerat lacus, ac feugiat elit scelerisque a.
-            In et pharetra nulla. Donec sit amet tellus ut nunc venenatis rhoncus a quis sapien.
-            Morbi pretium eget leo vitae hendrerit. Suspendisse ac fermentum sem.
-            Vivamus tempus erat rutrum lectus scelerisque lobortis eu sit amet erat.
-            Nam fermentum quam ante, eu tempus lacus elementum a.
-        </p>
-        <p>
-            Quisque lacinia bibendum porta. Vivamus mattis consequat dui, efficitur auctor justo fermentum sit amet.
-            Maecenas pharetra neque vel dui tempus luctus lobortis eu nulla.
-            Proin ligula lectus, laoreet et tincidunt eget, placerat eleifend risus.
-            Vestibulum ultrices nibh aliquam risus consequat bibendum.
-        </p>
-    </div>
+    <h1>Player Settings</h1>
     <div class="input-container">
-        <input type="number" id="width" placeholder="Set Your Width px" min="0">
-        <input type="text" id="height" placeholder="Set Your Height px" min="0">
+        <input type="number" id="width" placeholder="Set Your Player's Width" min="0">
+        <input type="text" id="height" placeholder="Set Your Player's Height" min="0">
         <input type="text" id="divId" placeholder="Set Your div ID">
         <input type="text" id="loadUrl" placeholder="URL">
         <button id="searchBtn">Search</button>
     </div>
 
     <figure id="container">
-        <div id="c-video" width="800px">
+        <div id="c-video">
             <video id="player" controls preload="metadata">
-                <source src="" type="video/mp4"> 
-                <!-- <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-webm-file.webm" type="video/webm">
-                <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mov-file.mov" type="video/mov">
-                <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-ogv-file.ogv" type="video/ogg"> -->
-
-                <object type="application/x-shockwave-flash" data="flash-player.swf?videoUrl=https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" width="1024" height="576">
-                    <param name="movie" value="flash-player.swf?videoUrl=https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" />
+                <source src="" type="video/mp4">
+                <object type="application/x-shockwave-flash"
+                    data="flash-player.swf?videoUrl=https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
+                    width="1024" height="576">
+                    <param name="movie"
+                        value="flash-player.swf?videoUrl=https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" />
                     <param name="allowfullscreen" value="true" />
                     <param name="wmode" value="transparent" />
-                    <param name="flashvars" value="controlbar=over&amp;file=flash-player.swf?https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" />
+                    <param name="flashvars"
+                        value="controlbar=over&amp;file=flash-player.swf?https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" />
                 </object>
             </video>
             <div class="video-progress">
@@ -74,7 +54,8 @@
                     <input id="vol-control" type="range" min="0" max="100" step="1"
                         oninput="setVolume(this.value)"></input>
                     <button id="volume">Volume: 50</button>
-                    <div id="reSize"><label>Adjust width:</label><input type="range" value="600" min="300" max="1300"></div>
+                    <div id="reSize"><label>Adjust width:</label><input type="range" value="600" min="300" max="1300">
+                    </div>
                 </div>
             </div>
         </div>

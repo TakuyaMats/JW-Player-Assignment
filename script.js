@@ -15,7 +15,6 @@ initializePlayer = () => {
     getViewability = document.getElementById("getViewability");
     progressBar = document.getElementById('progress-bar');
     seek = document.getElementById('seek');
-
     width = document.getElementById('width');
     height = document.getElementById('height');
     divId = document.getElementById('divId');
@@ -45,7 +44,15 @@ window.onload = initializePlayer;
 // player's desired width and height
 // width.setAttribute("max", window.innerWidth);
 
+toggleDisplay = () => {
+    if (cVideo.style.display === "none") {
+        cVideo.style.display = "block";
+    }
+}
+
 setSearch = () => {
+    toggleDisplay()
+
     let setWidth = width.value + 'px';
     let setHeight = height.value + 'px';
 
@@ -152,12 +159,16 @@ function setTimeUpdate() {
     if (durMins < 10) {
         durMins = "0" + durMins;
     }
+    // if (durMins === isNaN() && durSecs === isNaN()) {
+    //     currentTime.innerHTML = "00:00 / 00:00"
+    // }
     currentTime.innerHTML = (curMins + ":" + curSecs + " / " + durMins + ":" + durSecs);
 }
 
 
 // Intersection Observer
 const cVideo = document.getElementById('c-video');
+cVideo.style.display = "none";
 
 const optionsViewPort = {
     root: null,
@@ -215,45 +226,45 @@ updateProgress = () => {
 
 
 
-if (window.ResizeObserver) {
-    let slider = document.querySelector('reSize input[type="range"]');
+// if (window.ResizeObserver) {
+//     let slider = document.querySelector('reSize input[type="range"]');
 
-    cVideo.style.width = '800px';
+//     cVideo.style.width = '800px';
 
-    slider.addEventListener('input', () => {
-        cVideo.style.width = slider.value + 'px';
-    })
+//     slider.addEventListener('input', () => {
+//         cVideo.style.width = slider.value + 'px';
+//     })
 
-    const resizeObserver = new ResizeObserver(entries => {
-        for (let entry of entries) {
-            if (entry.contentBoxSize) {
-            // if (entry.contentBoxSize && entry.contentBoxSize.length > 0) {
-            //     entry.target.style.borderRadius = Math.min(100, (entry.contentBoxSize[0].inlineSize / 10) +
-            //         (entry.contentBoxSize[0].blockSize / 10)) + 'px';
-            // } else {
-            //     entry.target.style.borderRadius = Math.min(100, (entry.contentRect.width / 10) +
-            //         (entry.contentRect.height / 10)) + 'px';
+//     const resizeObserver = new ResizeObserver(entries => {
+//         for (let entry of entries) {
+//             if (entry.contentBoxSize) {
+//             // if (entry.contentBoxSize && entry.contentBoxSize.length > 0) {
+//             //     entry.target.style.borderRadius = Math.min(100, (entry.contentBoxSize[0].inlineSize / 10) +
+//             //         (entry.contentBoxSize[0].blockSize / 10)) + 'px';
+//             // } else {
+//             //     entry.target.style.borderRadius = Math.min(100, (entry.contentRect.width / 10) +
+//             //         (entry.contentRect.height / 10)) + 'px';
 
-                // cVideo.style.width = Math.max(1.5, entry.contentRect.width / 200) + 'rem';
-                // cVideo.style.width = Math.max(1, entry.contentRect.width / 600) + 'rem';
-                //     // Checking for chrome as using a non-standard array
-                //     if (entry.contentBoxSize[0]) {
-                //         h1Elem.style.fontSize = Math.max(1.5, entry.contentBoxSize[0].inlineSize / 200) + 'rem';
-                //         pElem.style.fontSize = Math.max(1, entry.contentBoxSize[0].inlineSize / 600) + 'rem';
-                //     } else {
-                //         h1Elem.style.fontSize = Math.max(1.5, entry.contentBoxSize.inlineSize / 200) + 'rem';
-                //         pElem.style.fontSize = Math.max(1, entry.contentBoxSize.inlineSize / 600) + 'rem';
-                //     }
+//                 // cVideo.style.width = Math.max(1.5, entry.contentRect.width / 200) + 'rem';
+//                 // cVideo.style.width = Math.max(1, entry.contentRect.width / 600) + 'rem';
+//                 //     // Checking for chrome as using a non-standard array
+//                 //     if (entry.contentBoxSize[0]) {
+//                 //         h1Elem.style.fontSize = Math.max(1.5, entry.contentBoxSize[0].inlineSize / 200) + 'rem';
+//                 //         pElem.style.fontSize = Math.max(1, entry.contentBoxSize[0].inlineSize / 600) + 'rem';
+//                 //     } else {
+//                 //         h1Elem.style.fontSize = Math.max(1.5, entry.contentBoxSize.inlineSize / 200) + 'rem';
+//                 //         pElem.style.fontSize = Math.max(1, entry.contentBoxSize.inlineSize / 600) + 'rem';
+//                 //     }
 
-                // } else {
-                //     cVideo.style.width = Math.max(1.5, entry.contentRect.width / 200) + 'rem';
-                //     cVideo.style.width = Math.max(1, entry.contentRect.width / 600) + 'rem';
-                // }
-            }
-            console.log('Size changed');
-        };
+//                 // } else {
+//                 //     cVideo.style.width = Math.max(1.5, entry.contentRect.width / 200) + 'rem';
+//                 //     cVideo.style.width = Math.max(1, entry.contentRect.width / 600) + 'rem';
+//                 // }
+//             }
+//             console.log('Size changed');
+//         };
 
-        resizeObserver.observe(slider);
+//         resizeObserver.observe(slider);
 
-    })
-}
+//     })
+// }
