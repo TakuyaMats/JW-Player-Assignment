@@ -32,9 +32,7 @@
     </div>
     <div class="container">
         <div id="c-video">
-            <video id="player">
-                <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" type="video/mp4" />
-            </video>
+            <video id="player" src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" type="video/mp4"></video>
             <div id="control-bar">
                 <div class="buttons">
                     <button id="playPauseBtn">Pause</button>
@@ -42,13 +40,15 @@
                     <button id="disableAutoPlay">Disable Autoplay</button>
                     <button id="mute">Mute</button>
                     <button id="fullScreen">Full Screen</button>
-                    <input  id="vol-control" type="range" min="0" max="100" step="1" oninput="setVolume(this.value)"></input>
-                    <button id="volume">Volume:</button>
+                    <input  id="vol-control" type="range" min="0" max="100" step="1" value="1" oninput="setVolume(this.value)"></input>
+                    <button id="volume">Volume: 0</button>
+                    <button id="reSize">Resize</button>
                 </div>
             </div>
             <div id="player-status">
+                <!-- <input type="range" min="0" max="100" id="timeline" value="0" /> -->
                 <!-- <input id="seekslider" type="range" min="0" max="100" value="0" step="1"> -->
-                <span id="curtimetext">00:00/02:05</span>
+                <div id="curtimetext">00:00/02:05</div>
                 <div id="playBackState"><span aria-label="playbackState">Paused</span></div>
                 <div id="getHeight"><span aria-label="getHeight">Height:</span></div>
                 <div id="getWidth"><span aria-label="getWidth">Width:</span></div>

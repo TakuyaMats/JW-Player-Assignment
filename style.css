@@ -8,8 +8,14 @@
 
 #c-video {
     width: 100%;
-    max-width: 800px;
+    max-width: 840px;
+    min-width: 440px;
     position: relative;
+    /* object-fit: cover; */
+    /* resize: both;
+    overflow: auto;
+    max-height: fit-content;
+    max-width: fit-content; */
 }
 
 .buttons button {
@@ -34,7 +40,8 @@
 }
 
 #player {
-    width: 100%;
+    width: 100% !important;
+    height: auto !important;
 }
 
 #control-bar {
@@ -49,8 +56,9 @@
 
 #player-status {
     display: flex;
-    position: absolute;
     justify-content: center;
+    position: absolute;
+    flex-wrap: wrap;
     width: 100%;
     background: #000;
 }
