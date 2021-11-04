@@ -140,3 +140,8 @@ progress {
     color: #fff;
     background-color: rgba(0, 0, 0, 0.6);
 }
+
+.input-container {
+    display: flex;
+    justify-content: space-around;
+}

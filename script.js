@@ -16,6 +16,12 @@ initializePlayer = () => {
     progressBar = document.getElementById('progress-bar');
     seek = document.getElementById('seek');
 
+    width = document.getElementById('width');
+    height = document.getElementById('height');
+    divId = document.getElementById('divId');
+    loadUrl = document.getElementById('oadUrl');
+    searchBtn = document.getElementById('searchBtn');
+
     // Hide default controls
     vid.controls = false;
 
@@ -31,10 +37,23 @@ initializePlayer = () => {
     vid.addEventListener("ended", getEndedBackState, false);
     vid.addEventListener("timeupdate", setTimeUpdate, false);
     vid.addEventListener('timeupdate', updateProgress, false);
+    // width.addEventListener('resize', setProperties, false);
+    searchBtn.addEventListener('click', setSearch, false);
 }
 window.onload = initializePlayer;
 
+// player's desired width and height
+// width.setAttribute("max", window.innerWidth);
 
+setSearch = () => {
+    let setWidth = width.value + 'px';
+    let setHeight = height.value + 'px';
+    cVideo.style.width = setWidth;
+    cVideo.style.height = setHeight;
+}
+
+// url function
+"https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
 
 // Play & Pause Button
 playPause = () => {
@@ -181,54 +200,59 @@ updateProgress = () => {
 // reSize
 
 
-var observer = new ResizeObserver(function(entries) {
-    entries.forEach(function(entry) {
-        console.log(entry.target.id + ': ' + JSON.stringify(entry.contentRect));
-    });
-});
-observer.observe(cVideo);
-
-console.log('before style change');
-cVideo.style.width = '800px';
-console.log('after style change');
-
-
-
-
-// if (window.ResizeObserver) {
-//     const h1Elem = document.querySelector('h1');
-//     const pElem = document.querySelector('p');
-//     const divElem = document.querySelector('body > div');
-//     const slider = document.getElementById('reSize');
-
-//     cVideo.style.width = '800px';
-
-//     slider.addEventListener('input', () => {
-//         cVideo.style.width = slider.value + 'px';
-//     })
-
-//     const resizeObserver = new ResizeObserver(entries => {
-//         for (let entry of entries) {
-//             if (entry.contentBoxSize) {
-//                 // Checking for chrome as using a non-standard array
-//                 if (entry.contentBoxSize[0]) {
-//                     h1Elem.style.fontSize = Math.max(1.5, entry.contentBoxSize[0].inlineSize / 200) + 'rem';
-//                     pElem.style.fontSize = Math.max(1, entry.contentBoxSize[0].inlineSize / 600) + 'rem';
-//                 } else {
-//                     h1Elem.style.fontSize = Math.max(1.5, entry.contentBoxSize.inlineSize / 200) + 'rem';
-//                     pElem.style.fontSize = Math.max(1, entry.contentBoxSize.inlineSize / 600) + 'rem';
-//                 }
-
-//             } else {
-//                 cVideo.style.width = Math.max(1.5, entry.contentRect.width / 200) + 'rem';
-//                 cVideo.style.width = Math.max(1, entry.contentRect.width / 600) + 'rem';
-//             }
-//         }
-//         console.log('Size changed');
+// var observer = new ResizeObserver(function(entries) {
+//     entries.forEach(function(entry) {
+//         console.log(entry.target.id + ': ' + JSON.stringify(entry.contentRect));
 //     });
+// });
+// observer.observe(cVideo);
 
-//     resizeObserver.observe(slider);
+// console.log('before style change');
+// cVideo.style.width = '800px';
+// console.log('after style change');
 
-// } else {
-//     console.log('Resize observer not supported!');
-// }
+
+
+
+if (window.ResizeObserver) {
+    let slider = document.querySelector('reSize input[type="range"]');
+
+    cVideo.style.width = '800px';
+
+    slider.addEventListener('input', () => {
+        cVideo.style.width = slider.value + 'px';
+    })
+
+    const resizeObserver = new ResizeObserver(entries => {
+        for (let entry of entries) {
+            if (entry.contentBoxSize) {
+            // if (entry.contentBoxSize && entry.contentBoxSize.length > 0) {
+            //     entry.target.style.borderRadius = Math.min(100, (entry.contentBoxSize[0].inlineSize / 10) +
+            //         (entry.contentBoxSize[0].blockSize / 10)) + 'px';
+            // } else {
+            //     entry.target.style.borderRadius = Math.min(100, (entry.contentRect.width / 10) +
+            //         (entry.contentRect.height / 10)) + 'px';
+
+                // cVideo.style.width = Math.max(1.5, entry.contentRect.width / 200) + 'rem';
+                // cVideo.style.width = Math.max(1, entry.contentRect.width / 600) + 'rem';
+                //     // Checking for chrome as using a non-standard array
+                //     if (entry.contentBoxSize[0]) {
+                //         h1Elem.style.fontSize = Math.max(1.5, entry.contentBoxSize[0].inlineSize / 200) + 'rem';
+                //         pElem.style.fontSize = Math.max(1, entry.contentBoxSize[0].inlineSize / 600) + 'rem';
+                //     } else {
+                //         h1Elem.style.fontSize = Math.max(1.5, entry.contentBoxSize.inlineSize / 200) + 'rem';
+                //         pElem.style.fontSize = Math.max(1, entry.contentBoxSize.inlineSize / 600) + 'rem';
+                //     }
+
+                // } else {
+                //     cVideo.style.width = Math.max(1.5, entry.contentRect.width / 200) + 'rem';
+                //     cVideo.style.width = Math.max(1, entry.contentRect.width / 600) + 'rem';
+                // }
+            }
+            console.log('Size changed');
+        };
+
+        resizeObserver.observe(slider);
+
+    })
+}

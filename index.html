@@ -30,13 +30,21 @@
             Vestibulum ultrices nibh aliquam risus consequat bibendum.
         </p>
     </div>
+    <div class="input-container">
+        <input type="number" id="width" placeholder="Set Your Width px" min="0">
+        <input type="text" id="height" placeholder="Set Your Height px" min="0">
+        <input type="text" id="divId" placeholder="Set Your div ID">
+        <input type="text" id="loadUrl" placeholder="URL">
+        <button id="searchBtn">Search</button>
+    </div>
+
     <figure id="container">
-        <div id="c-video">
-            <video id="player" controls preload="metadata" poster="poster/poster.jpeg">
+        <div id="c-video" width="800px">
+            <video id="player" controls preload="metadata">
                 <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" type="video/mp4"> 
-                <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-webm-file.webm" type="video/webm">
+                <!-- <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-webm-file.webm" type="video/webm">
                 <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mov-file.mov" type="video/mov">
-                <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-ogv-file.ogv" type="video/ogg">
+                <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-ogv-file.ogv" type="video/ogg"> -->
 
                 <object type="application/x-shockwave-flash" data="flash-player.swf?videoUrl=https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" width="1024" height="576">
                     <param name="movie" value="flash-player.swf?videoUrl=https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" />
@@ -50,7 +58,7 @@
                 <input class="seek" id="seek" value="0" min="0" type="range" step="1">
             </div>
             <div id="player-status">
-                <div id="currentTime">00:00 / 02:05</div>
+                <div id="currentTime">00:00 / 00:00</div>
                 <div id="playBackState"><span aria-label="playbackState">Paused</span></div>
                 <div id="getHeight"><span aria-label="getHeight">Height:</span></div>
                 <div id="getWidth"><span aria-label="getWidth">Width:</span></div>
@@ -58,7 +66,7 @@
             </div>
             <div id="control-bar">
                 <div class="buttons">
-                    <button id="playPauseBtn">Pause</button>
+                    <button id="playPauseBtn">Play</button>
                     <button id="autoPlay">Autoplay</button>
                     <button id="disableAutoPlay">Disable Autoplay</button>
                     <button id="mute">Mute</button>
