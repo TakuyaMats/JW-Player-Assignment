@@ -19,7 +19,7 @@ initializePlayer = () => {
     width = document.getElementById('width');
     height = document.getElementById('height');
     divId = document.getElementById('divId');
-    loadUrl = document.getElementById('oadUrl');
+    loadUrl = document.getElementById('loadUrl');
     searchBtn = document.getElementById('searchBtn');
 
     // Hide default controls
@@ -48,12 +48,13 @@ window.onload = initializePlayer;
 setSearch = () => {
     let setWidth = width.value + 'px';
     let setHeight = height.value + 'px';
+
     cVideo.style.width = setWidth;
     cVideo.style.height = setHeight;
-}
 
-// url function
-"https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
+    vid.setAttribute("src", loadUrl.value)
+    vid.load();
+}
 
 // Play & Pause Button
 playPause = () => {
