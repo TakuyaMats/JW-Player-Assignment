@@ -10,29 +10,41 @@
 
 <body>
     <div class="section1">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Vestibulum in erat facilisis, gravida ex sit amet, pulvinar lectus. 
-            Suspendisse tempus nisi tempor, placerat est ac, euismod mauris. 
-            Praesent egestas varius blandit. Quisque blandit aliquam congue. 
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Vestibulum in erat facilisis, gravida ex sit amet, pulvinar lectus.
+            Suspendisse tempus nisi tempor, placerat est ac, euismod mauris.
+            Praesent egestas varius blandit. Quisque blandit aliquam congue.
             Vestibulum lacinia ipsum ac massa pulvinar porta. Integer non turpis lectus. Suspendisse potenti.
         </p>
         <p>
-            Proin ullamcorper placerat lacus, ac feugiat elit scelerisque a. 
-            In et pharetra nulla. Donec sit amet tellus ut nunc venenatis rhoncus a quis sapien. 
-            Morbi pretium eget leo vitae hendrerit. Suspendisse ac fermentum sem. 
-            Vivamus tempus erat rutrum lectus scelerisque lobortis eu sit amet erat. 
+            Proin ullamcorper placerat lacus, ac feugiat elit scelerisque a.
+            In et pharetra nulla. Donec sit amet tellus ut nunc venenatis rhoncus a quis sapien.
+            Morbi pretium eget leo vitae hendrerit. Suspendisse ac fermentum sem.
+            Vivamus tempus erat rutrum lectus scelerisque lobortis eu sit amet erat.
             Nam fermentum quam ante, eu tempus lacus elementum a.
         </p>
         <p>
-            Quisque lacinia bibendum porta. Vivamus mattis consequat dui, efficitur auctor justo fermentum sit amet. 
-            Maecenas pharetra neque vel dui tempus luctus lobortis eu nulla. 
-            Proin ligula lectus, laoreet et tincidunt eget, placerat eleifend risus. 
-            Vestibulum ultrices nibh aliquam risus consequat bibendum. 
+            Quisque lacinia bibendum porta. Vivamus mattis consequat dui, efficitur auctor justo fermentum sit amet.
+            Maecenas pharetra neque vel dui tempus luctus lobortis eu nulla.
+            Proin ligula lectus, laoreet et tincidunt eget, placerat eleifend risus.
+            Vestibulum ultrices nibh aliquam risus consequat bibendum.
         </p>
     </div>
     <div class="container">
         <div id="c-video">
-            <video id="player" src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" type="video/mp4"></video>
+            <video id="player" src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
+                type="video/mp4"></video>
+            <div class="video-progress">
+                <progress id="progress-bar" value="0" min="0"></progress>
+                <input class="seek" id="seek" value="0" min="0" type="range" step="1">
+            </div>
+            <div id="player-status">
+                <div id="currentTime">00:00 / 02:05</div>
+                <div id="playBackState"><span aria-label="playbackState">Paused</span></div>
+                <div id="getHeight"><span aria-label="getHeight">Height:</span></div>
+                <div id="getWidth"><span aria-label="getWidth">Width:</span></div>
+                <div id="getViewability"><span aria-label="getViewability">Viewability:</span></div>
+            </div>
             <div id="control-bar">
                 <div class="buttons">
                     <button id="playPauseBtn">Pause</button>
@@ -40,58 +52,51 @@
                     <button id="disableAutoPlay">Disable Autoplay</button>
                     <button id="mute">Mute</button>
                     <button id="fullScreen">Full Screen</button>
-                    <input  id="vol-control" type="range" min="0" max="100" step="1" value="1" oninput="setVolume(this.value)"></input>
+                    <input id="vol-control" type="range" min="0" max="100" step="1" value="1"
+                        oninput="setVolume(this.value)"></input>
                     <button id="volume">Volume: 0</button>
                     <button id="reSize">Resize</button>
                 </div>
             </div>
-            <div id="player-status">
-                <!-- <input type="range" min="0" max="100" id="timeline" value="0" /> -->
-                <!-- <input id="seekslider" type="range" min="0" max="100" value="0" step="1"> -->
-                <div id="curtimetext">00:00/02:05</div>
-                <div id="playBackState"><span aria-label="playbackState">Paused</span></div>
-                <div id="getHeight"><span aria-label="getHeight">Height:</span></div>
-                <div id="getWidth"><span aria-label="getWidth">Width:</span></div>
-                <div id="getViewability"><span aria-label="getViewability">Viewability:</span></div>
-            </div>
         </div>
     </div>
     <div class="section2">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Vestibulum in erat facilisis, gravida ex sit amet, pulvinar lectus. 
-            Suspendisse tempus nisi tempor, placerat est ac, euismod mauris. 
-            Praesent egestas varius blandit. Quisque blandit aliquam congue. 
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Vestibulum in erat facilisis, gravida ex sit amet, pulvinar lectus.
+            Suspendisse tempus nisi tempor, placerat est ac, euismod mauris.
+            Praesent egestas varius blandit. Quisque blandit aliquam congue.
             Vestibulum lacinia ipsum ac massa pulvinar porta. Integer non turpis lectus. Suspendisse potenti.
         </p>
         <p>
-            Proin ullamcorper placerat lacus, ac feugiat elit scelerisque a. 
-            In et pharetra nulla. Donec sit amet tellus ut nunc venenatis rhoncus a quis sapien. 
-            Morbi pretium eget leo vitae hendrerit. Suspendisse ac fermentum sem. 
-            Vivamus tempus erat rutrum lectus scelerisque lobortis eu sit amet erat. 
+            Proin ullamcorper placerat lacus, ac feugiat elit scelerisque a.
+            In et pharetra nulla. Donec sit amet tellus ut nunc venenatis rhoncus a quis sapien.
+            Morbi pretium eget leo vitae hendrerit. Suspendisse ac fermentum sem.
+            Vivamus tempus erat rutrum lectus scelerisque lobortis eu sit amet erat.
             Nam fermentum quam ante, eu tempus lacus elementum a.
         </p>
         <p>
-            Quisque lacinia bibendum porta. Vivamus mattis consequat dui, efficitur auctor justo fermentum sit amet. 
-            Maecenas pharetra neque vel dui tempus luctus lobortis eu nulla. 
-            Proin ligula lectus, laoreet et tincidunt eget, placerat eleifend risus. 
-            Vestibulum ultrices nibh aliquam risus consequat bibendum. 
+            Quisque lacinia bibendum porta. Vivamus mattis consequat dui, efficitur auctor justo fermentum sit amet.
+            Maecenas pharetra neque vel dui tempus luctus lobortis eu nulla.
+            Proin ligula lectus, laoreet et tincidunt eget, placerat eleifend risus.
+            Vestibulum ultrices nibh aliquam risus consequat bibendum.
         </p>
     </div>
     <div class="section3">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Vestibulum in erat facilisis, gravida ex sit amet, pulvinar lectus. 
-            Suspendisse tempus nisi tempor, placerat est ac, euismod mauris. 
-            Praesent egestas varius blandit. Quisque blandit aliquam congue. 
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Vestibulum in erat facilisis, gravida ex sit amet, pulvinar lectus.
+            Suspendisse tempus nisi tempor, placerat est ac, euismod mauris.
+            Praesent egestas varius blandit. Quisque blandit aliquam congue.
             Vestibulum lacinia ipsum ac massa pulvinar porta. Integer non turpis lectus. Suspendisse potenti.
         </p>
         <p>
-            Proin ullamcorper placerat lacus, ac feugiat elit scelerisque a. 
-            In et pharetra nulla. Donec sit amet tellus ut nunc venenatis rhoncus a quis sapien. 
-            Morbi pretium eget leo vitae hendrerit. Suspendisse ac fermentum sem. 
-            Vivamus tempus erat rutrum lectus scelerisque lobortis eu sit amet erat. 
+            Proin ullamcorper placerat lacus, ac feugiat elit scelerisque a.
+            In et pharetra nulla. Donec sit amet tellus ut nunc venenatis rhoncus a quis sapien.
+            Morbi pretium eget leo vitae hendrerit. Suspendisse ac fermentum sem.
+            Vivamus tempus erat rutrum lectus scelerisque lobortis eu sit amet erat.
             Nam fermentum quam ante, eu tempus lacus elementum a.
         </p>
     </div>
     <script type="text/javascript" src="script.js"></script>
 </body>
+
 </html>
