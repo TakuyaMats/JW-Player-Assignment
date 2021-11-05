@@ -13,25 +13,14 @@
     <div class="input-container">
         <input type="number" id="width" placeholder="Set Your Player's Width" min="0">
         <input type="text" id="height" placeholder="Set Your Player's Height" min="500">
-        <!-- <input type="text" id="divId" placeholder="Set Your div ID"> -->
-        <input type="text" id="loadUrl" placeholder="URL">
+        <input type="text" id="loadUrl" placeholder="Put Video URL">
         <button id="searchBtn">Search</button>
     </div>
 
     <figure id="container">
-        <div id="c-video">
-            <video id="player" controls playsinline autoplay muted loop>
+        <div id="vidContainer">
+            <video id="player" controls>
                 <source src="" type="video/mp4">
-                <object type="application/x-shockwave-flash"
-                    data="flash-player.swf?videoUrl=https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
-                    width="1024" height="576">
-                    <param name="movie"
-                        value="flash-player.swf?videoUrl=https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" />
-                    <param name="allowfullscreen" value="true" />
-                    <param name="wmode" value="transparent" />
-                    <param name="flashvars"
-                        value="controlbar=over&amp;file=flash-player.swf?https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" />
-                </object>
             </video>
             <div class="video-progress">
                 <progress id="progress-bar" value="0" min="0"></progress>
@@ -42,7 +31,7 @@
                 <div id="playBackState"><span aria-label="playbackState">Paused</span></div>
                 <div id="getHeight"><span aria-label="getHeight">Height:</span></div>
                 <div id="getWidth"><span aria-label="getWidth">Width:</span></div>
-                <div id="getViewability"><span aria-label="getViewability">Viewability:</span></div>
+                <div id="getViewAbility"><span aria-label="getViewability">Viewability:</span></div>
             </div>
             <div id="control-bar">
                 <div class="buttons">
@@ -53,8 +42,9 @@
                     <button id="fullScreen">Full Screen</button>
                     <input id="vol-control" type="range" min="0" max="100" step="1"
                         oninput="setVolume(this.value)"></input>
-                    <button id="volume">Volume: 50</button>
-                    <div id="reSize"><label>Adjust width:</label><input type="range" value="800" min="400" max="1600" step="1">
+                    <button id="volume" disabled>Volume: 50</button>
+                    <div id="reSize"><label>Adjust width:</label><input type="range" value="800" min="400" max="1600"
+                            step="1">
                     </div>
                 </div>
             </div>
