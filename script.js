@@ -2,6 +2,7 @@ initializePlayer = () => {
     // Set object references
     vid = document.getElementById('player');
     playBtn = document.getElementById('playPauseBtn');
+    container = document.getElementById('container');
     autoBtn = document.getElementById('autoPlay');
     disableAutoBtn = document.getElementById('disableAutoPlay');
     volumeControl = document.getElementById('vol-control');
@@ -21,6 +22,8 @@ initializePlayer = () => {
     loadUrl = document.getElementById('loadUrl');
     searchBtn = document.getElementById('searchBtn');
 
+    console.log(fullScreen);
+
     // Hide default controls
     vid.controls = false;
 
@@ -39,6 +42,7 @@ initializePlayer = () => {
     // width.addEventListener('resize', setProperties, false);
     searchBtn.addEventListener('click', setSearch, false);
 }
+
 window.onload = initializePlayer;
 
 // player's desired width and height
@@ -60,6 +64,7 @@ setSearch = () => {
     cVideo.style.height = setHeight;
 
     vid.setAttribute("src", loadUrl.value)
+    vid.setAttribute('webkit-playsinline', 'webkit-playsinline');
     vid.load();
 }
 

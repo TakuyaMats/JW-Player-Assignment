@@ -8,15 +8,18 @@
     align-items: center;
     margin-bottom: 24px;
     margin: 24px;
-    overflow: hidden;
-    transition: height 0.66s ease-out;
+    /* max-width: 1600px;
+    min-width: 400px;
+    min-height: 800px; */
+    /* overflow: hidden;
+    transition: height 0.66s ease-out; */
 }
 
 #c-video {
     width: 100%;
     max-width: 1600px;
     min-width: 400px;
-    min-height: 500px;
+    min-height: 800px;
     position: relative;
     overflow: hidden;
     transition: height 0.66s ease-out;
